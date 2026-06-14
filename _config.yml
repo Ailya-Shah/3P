@@ -1,7 +1,7 @@
 title: Ailya Shah
 description: Data science, machine learning, and notes on building things.
-url: ""
-baseurl: ""
+url: "https://ailya-shah.github.io"
+baseurl: "/3P"
 markdown: kramdown
 highlighter: rouge
 plugins:

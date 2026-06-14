@@ -19,10 +19,10 @@ title: Home
 
 
   <div class="hero-links">
-    <a href="/about/">About</a>
-    <a href="/projects/">Projects</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/projects/' | relative_url }}">Projects</a>
     <a href="https://github.com/Ailya-Shah">GitHub</a>
-    <a href="/contact/">Contact</a>
+    <a href="{{ '/contact/' | relative_url }}">Contact</a>
   </div>
 </section>
 
