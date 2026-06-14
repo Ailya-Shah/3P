@@ -1,3 +1,7 @@
+---
+layout: default
+title: Home
+---
 
 <section class="hero">
   <p class="eyebrow brand">3P</p>
