@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-14T20:45:07+05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ailya Shah</title><subtitle>Data science, machine learning, and notes on building things.</subtitle><entry><title type="html">Starting Point: Building a More Editorial Portfolio</title><link href="http://localhost:4000/2026/06/14/starting-note.html" rel="alternate" type="text/html" title="Starting Point: Building a More Editorial Portfolio" /><published>2026-06-14T00:00:00+05:00</published><updated>2026-06-14T00:00:00+05:00</updated><id>http://localhost:4000/2026/06/14/starting-note</id><content type="html" xml:base="http://localhost:4000/2026/06/14/starting-note.html"><![CDATA[<p>This is the kind of post that gives the site a stronger identity.</p>
+
+<h2 id="what-i-changed">What I changed</h2>
+
+<p>I moved away from a resume-style homepage and started treating the site like a small publication: shorter navigation, clearer visual hierarchy, and room for writing.</p>
+
+<h2 id="what-i-want-to-add-next">What I want to add next</h2>
+
+<ul>
+  <li>A technical post about one project</li>
+  <li>Screenshots and charts</li>
+  <li>A tighter project index</li>
+  <li>Better writing around process and tradeoffs</li>
+</ul>
+
+<h2 id="why-it-matters">Why it matters</h2>
+
+<p>A portfolio becomes more memorable when it shows how you think, not just what you know.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[This is the kind of post that gives the site a stronger identity.]]></summary></entry><entry><title type="html">AirVision 2026: Turning Satellite Data into a Cleaner Story</title><link href="http://localhost:4000/2026/06/14/airvision.html" rel="alternate" type="text/html" title="AirVision 2026: Turning Satellite Data into a Cleaner Story" /><published>2026-06-14T00:00:00+05:00</published><updated>2026-06-14T00:00:00+05:00</updated><id>http://localhost:4000/2026/06/14/airvision</id><content type="html" xml:base="http://localhost:4000/2026/06/14/airvision.html"><![CDATA[<p>AirVision started as a simple question: can satellite and reanalysis data make air quality easier to understand across multiple cities, instead of leaving it buried in raw tables and charts?</p>
+
+<h2 id="what-i-built">What I built</h2>
+
+<p>I built a Streamlit app that compares air-quality signals across 15 Pakistani cities and turns them into a visual study. The goal was not only to display data, but to make the differences easier to inspect and explain.</p>
+
+<p>The project combines data collection, cleaning, feature engineering, and visualization. I used satellite and reanalysis sources such as Google Earth Engine, Sentinel-5P, ERA5, and CAMS, then organized the results into a small interface for exploration.</p>
+
+<h2 id="why-this-project-mattered">Why this project mattered</h2>
+
+<p>The main challenge in a project like this is that environmental data is rarely clean or immediately comparable. Different sources have different scales, sampling patterns, and noise characteristics. That means the real work is not just plotting, but deciding how to align the data so the comparison is meaningful.</p>
+
+<p>That is the part I found most useful to work through. It forced me to think about data consistency, feature selection, and the difference between a dataset that exists and a dataset that is actually readable.</p>
+
+<h2 id="what-i-learned">What I learned</h2>
+
+<ul>
+  <li>Raw environmental data needs more interpretation than it first appears to need.</li>
+  <li>A good interface can make a technical project feel much more approachable.</li>
+  <li>The strongest part of a project is often the reasoning behind the pipeline, not just the final model or chart.</li>
+</ul>
+
+<h2 id="what-i-would-improve-next">What I would improve next</h2>
+
+<p>If I extend the project, I would add clearer comparisons across time, stronger annotation of anomalies, and a short write-up explaining the assumptions behind each data source.</p>
+
+<p>That would move the work even closer to a publication-style project rather than just a dashboard.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[AirVision started as a simple question: can satellite and reanalysis data make air quality easier to understand across multiple cities, instead of leaving it buried in raw tables and charts?]]></summary></entry></feed>

@@ -1,0 +1,19 @@
+title: Ailya Shah
+description: Data science, machine learning, and notes on building things.
+url: ""
+baseurl: ""
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
