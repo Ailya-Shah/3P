@@ -14,4 +14,5 @@ permalink: /contact/
   <li><a href="https://substack.com/@ailyaa">Substack</a></li>
 
   <li><a href="mailto:azainab.bsds24seecs@seecs.edu.pk">Email</a></li>
+  
 </ul>
