@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/3P/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/3P/" rel="alternate" type="text/html" /><updated>2026-06-16T12:31:19+05:00</updated><id>http://localhost:4000/3P/feed.xml</id><title type="html">Ailya Shah</title><subtitle>Data science, machine learning, and notes on building things.</subtitle><entry><title type="html">Welcome to 3P: Physics, Psyche, and Python</title><link href="http://localhost:4000/3P/2026/06/16/starting-note.html" rel="alternate" type="text/html" title="Welcome to 3P: Physics, Psyche, and Python" /><published>2026-06-16T00:00:00+05:00</published><updated>2026-06-16T00:00:00+05:00</updated><id>http://localhost:4000/3P/2026/06/16/starting-note</id><content type="html" xml:base="http://localhost:4000/3P/2026/06/16/starting-note.html"><![CDATA[<p>Three letters. Three disciplines. One notebook.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/3P/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/3P/" rel="alternate" type="text/html" /><updated>2026-06-16T14:16:47+05:00</updated><id>http://localhost:4000/3P/feed.xml</id><title type="html">Ailya Shah</title><subtitle>Data science, machine learning, and notes on building things.</subtitle><entry><title type="html">Welcome to 3P: Physics, Psyche, and Python</title><link href="http://localhost:4000/3P/2026/06/16/starting-note.html" rel="alternate" type="text/html" title="Welcome to 3P: Physics, Psyche, and Python" /><published>2026-06-16T00:00:00+05:00</published><updated>2026-06-16T00:00:00+05:00</updated><id>http://localhost:4000/3P/2026/06/16/starting-note</id><content type="html" xml:base="http://localhost:4000/3P/2026/06/16/starting-note.html"><![CDATA[<p>Three letters. Three disciplines. One notebook.</p>
 
 <p>This is the first post on what I’m calling <strong>3P</strong>—an experiment in keeping my technical work, research reflections, and interdisciplinary curiosities in one place.</p>
 
@@ -25,6 +25,8 @@
 </ul>
 
 <p>The portfolio pages you’ll find here (About, Projects, Contact) give the quick version of who I am. The blog is where I unpack the longer version—what I’m building, what I’m reading, what I’m trying to figure out.</p>
+
+<p><img src="misc/first-post-3p.png" alt="Book with a lamp" /></p>
 
 <h2 id="what-to-expect-going-forward">What to expect going forward</h2>
 

@@ -28,6 +28,9 @@ I wanted something that felt more like a personal publication than a static CV. 
 
 The portfolio pages you'll find here (About, Projects, Contact) give the quick version of who I am. The blog is where I unpack the longer version—what I'm building, what I'm reading, what I'm trying to figure out.
 
+
+![Book with a lamp](misc/first-post-3p.png)
+
 ## What to expect going forward
 
 I'm planning to post about:
@@ -54,3 +57,5 @@ Let's get started.
 ---
 
 **Next post**: A proper deep-dive into the AirVision project I've been working on—how I built it, what I learned, and where it's going next.
+
+[def]: /misc/first-post-3p.png
