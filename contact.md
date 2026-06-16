@@ -11,4 +11,5 @@ permalink: /contact/
     <li><a href="{{ item.url }}">{{ item.name }}</a></li>
   {% endfor %}
   <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+  <li><a href="https://substack.com/@ailyaa">Substack</a></li>
 </ul>
