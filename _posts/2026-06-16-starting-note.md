@@ -34,7 +34,7 @@ The part where ideas become runnable. pandas, NumPy, scikit-learn, Streamlit —
 the tools I use to turn a hunch into something you can open, poke at, and argue
 with.
 
-{% include figure.html src="/assets/images/workspace.png" alt="My workspace" caption="Where most of it happens." %}
+{% include figure.html src="/assets/images/workspace.jpg" alt="My workspace" caption="Where most of it happens." %}
 
 ## What goes here
 
