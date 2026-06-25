@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="post" data-reveal>
+  <header class="post-header">
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {%- assign words = content | number_of_words -%}
+      {%- assign minutes = words | divided_by: 200 | plus: 1 -%}
+      &nbsp;·&nbsp; {{ minutes }} min read
+    </p>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {%- if page.disc -%}
+      <span class="chip chip--{{ page.disc }}" style="margin-top:1.1rem">{{ page.disc }}</span>
+    {%- endif -%}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav" aria-label="More writing" style="margin-top:3rem;padding-top:1.75rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--sans);font-size:0.9rem;font-weight:500">
+    {%- if page.previous -%}
+      <a href="{{ page.previous.url | relative_url }}" style="text-decoration:none;color:var(--ink)">← {{ page.previous.title }}</a>
+    {%- else -%}<span></span>{%- endif -%}
+    {%- if page.next -%}
+      <a href="{{ page.next.url | relative_url }}" style="text-decoration:none;color:var(--ink);text-align:right">{{ page.next.title }} →</a>
+    {%- endif -%}
+  </nav>
+</article>

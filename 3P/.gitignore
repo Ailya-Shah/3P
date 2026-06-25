@@ -1,0 +1,15 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+
+# The uploaded lockfile was generated on Windows (x64-mingw-ucrt) and won't
+# install on Linux/macOS. Let Bundler regenerate it locally instead.
+Gemfile.lock
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="wrapper site-header-inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav" aria-label="Primary">
+      {%- assign nav_url = page.url | remove: site.baseurl -%}
+      {%- for item in site.nav -%}
+        {%- if item.url contains 'http' -%}
+          <a href="{{ item.url }}">{{ item.name }}</a>
+        {%- else -%}
+          <a href="{{ item.url | relative_url }}"{% if page.url == item.url or nav_url == item.url %} aria-current="page"{% endif %}>{{ item.name }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  </div>
+</header>

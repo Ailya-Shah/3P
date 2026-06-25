@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="wrapper footer-grid">
+    <p>{{ site.description }}</p>
+    <p>
+      {%- for item in site.social -%}
+        <a href="{{ item.url }}">{{ item.name }}</a>{% unless forloop.last %} <span>·</span> {% endunless %}
+      {%- endfor -%}
+    </p>
+    <p>© <span id="year">{{ site.time | date: "%Y" }}</span> {{ site.author.name }}</p>
+  </div>
+</footer>
