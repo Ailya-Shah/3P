@@ -636,7 +636,7 @@ figure figcaption {
 @media (max-width: 640px) {
   .post-list > li { grid-template-columns: 1fr; gap: 0.3rem; }
   .post-meta { grid-column: 1; padding-top: 0; }
-  .post-link, .post-list .post-excerpt, .chip { grid-column: 1; }
+  .post-link, .post-list .post-excerpt, .chip, .chips { grid-column: 1; }
   .intro-grid { grid-template-columns: 1fr; }
   .site-header-inner { flex-wrap: wrap; min-height: 0; padding-block: 0.75rem; }
   .site-nav { width: 100%; justify-content: flex-start; }
@@ -651,3 +651,87 @@ figure figcaption {
   }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* ---------- Featured post (pinned vision article) ---------- */
+.featured-post {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(194,66,79,0.10), transparent 55%),
+    var(--paper-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(1.7rem, 4vw, 2.8rem);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.featured-post::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--spectrum);
+}
+.featured-post:hover { border-color: var(--maroon); transform: translateY(-3px); }
+.featured-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+}
+.featured-eyebrow::before { content: "★"; font-size: 0.8em; }
+.featured-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 4.5vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0 0 0.9rem;
+  max-width: 22ch;
+}
+.featured-post .featured-lede {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 0 0 1.4rem;
+}
+.featured-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.2rem;
+}
+.featured-meta {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+.featured-cta {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--maroon-soft);
+}
+.featured-post:hover .featured-cta { color: var(--gold); }
+
+/* ---------- Flares wrapper (one or many chips) ---------- */
+.chips {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  justify-self: start;
+}
+.chips .chip { margin-top: 0; grid-column: auto; justify-self: auto; }

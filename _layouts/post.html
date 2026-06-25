@@ -11,9 +11,7 @@ layout: default
       &nbsp;·&nbsp; {{ minutes }} min read
     </p>
     <h1 class="post-title">{{ page.title }}</h1>
-    {%- if page.disc -%}
-      <span class="chip chip--{{ page.disc }}" style="margin-top:1.1rem">{{ page.disc }}</span>
-    {%- endif -%}
+    {% include chips.html disc=page.disc %}
   </header>
 
   <div class="post-content" itemprop="articleBody">

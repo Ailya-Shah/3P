@@ -27,7 +27,7 @@ permalink: /blog/
           {% if post.excerpt %}
             <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
           {% endif %}
-          {% if post.disc %}<span class="chip chip--{{ post.disc }}">{{ post.disc }}</span>{% endif %}
+          {% include chips.html disc=post.disc %}
         </li>
       {% endfor %}
     </ul>

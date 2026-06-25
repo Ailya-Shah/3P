@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to 3P: Physics, Psyche, and Python"
 date: 2026-06-16
-disc: python, psyche, physics
+disc: [ python, psyche, physics ]
 excerpt: "Three letters. Three disciplines. One notebook."
 ---
 

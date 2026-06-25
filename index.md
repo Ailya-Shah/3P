@@ -25,25 +25,44 @@ title: Home
   </div>
 </section>
 
+{%- assign featured = site.posts | where: "featured", true | first -%}
+{%- if featured -%}
 <section class="section" data-reveal>
-  <h2>Featured writing</h2>
+  <a class="featured-post" href="{{ featured.url | relative_url }}">
+    <p class="featured-eyebrow">Featured</p>
+    <h2 class="featured-title">{{ featured.title }}</h2>
+    <p class="featured-lede">{{ featured.excerpt | strip_html | truncate: 220 }}</p>
+    <div class="featured-foot">
+      <span class="featured-meta">{{ featured.date | date: "%b %-d, %Y" }} · {{ featured.reading | default: "5 min read" }}</span>
+      <span class="featured-cta">Read the vision →</span>
+    </div>
+  </a>
+</section>
+{%- endif -%}
+
+<section class="section" data-reveal>
+  <h2>Latest writing</h2>
   <ul class="post-list">
-    {% for post in site.posts limit:3 %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% if post.excerpt %}
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+    {% assign count = 0 %}
+    {% for post in site.posts %}
+      {% unless post.featured %}
+        {% if count < 4 %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if post.excerpt %}
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            {% endif %}
+            {% include chips.html disc=post.disc %}
+          </li>
+          {% assign count = count | plus: 1 %}
         {% endif %}
-        {% if post.disc %}<span class="chip chip--{{ post.disc }}">{{ post.disc }}</span>{% endif %}
-      </li>
+      {% endunless %}
     {% endfor %}
   </ul>
-  {% if site.posts.size > 3 %}
   <p style="margin-top:1.5rem;font-family:var(--sans);font-size:0.9rem;font-weight:500">
-    <a href="{{ '/blog/' | relative_url }}" style="text-decoration:none;color:var(--physics-ink)">All writing →</a>
+    <a href="{{ '/blog/' | relative_url }}" style="text-decoration:none;color:var(--maroon-soft)">All writing →</a>
   </p>
-  {% endif %}
 </section>
 
 <section class="section intro-grid" data-reveal>
@@ -58,9 +77,8 @@ title: Home
   <div>
     <h2>What to expect</h2>
     <p class="post-excerpt">
-      Technical notes, project write-ups, learning logs, essays,
-      experiments, and occasional attempts to connect ideas across
-      disciplines.
+      Project write-ups in plain language, learning logs, essays, and
+      occasional attempts to connect ideas across disciplines.
     </p>
   </div>
 </section>

@@ -1,0 +1,16 @@
+{%- comment -%}
+  Renders discipline flares. Pass a single value or a list:
+    {% include chips.html disc=page.disc %}
+  Front matter examples:
+    disc: python          (one flare — still works)
+    disc: [python, data]  (multiple flares)
+{%- endcomment -%}
+{%- if include.disc -%}
+<span class="chips">
+  {%- if include.disc.first -%}
+    {%- for d in include.disc -%}<span class="chip chip--{{ d }}">{{ d }}</span>{%- endfor -%}
+  {%- else -%}
+    <span class="chip chip--{{ include.disc }}">{{ include.disc }}</span>
+  {%- endif -%}
+</span>
+{%- endif -%}
