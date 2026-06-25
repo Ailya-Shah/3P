@@ -3,63 +3,95 @@ layout: post
 title: "AirVision 2026: Turning Satellite Data into a Cleaner Story"
 date: 2026-06-14
 disc: data
-excerpt: "AirVision started as a simple question: can satellite and reanalysis data make air quality easier to understand across multiple cities, instead of leaving it locked in raw numbers?"
+excerpt: "Fifteen cities, a year of air-quality data from space, and one goal: turn a wall of numbers into something you can actually read."
 ---
 
-AirVision started as a simple question: can satellite and reanalysis data make
-air quality easier to understand across multiple cities, instead of leaving it
-locked in raw numbers?
-
-The honest answer most dashboards give you is a wall of pollutant readings with
-no story attached. I wanted the opposite — something where you could open a city,
-see how it breathes over a year, and actually feel the difference between a good
-day and a bad one.
+Ask someone what their city's air was like last year and they'll shrug. Ask them
+to read a spreadsheet of pollutant concentrations and they'll shrug harder.
+AirVision started from that gap — the distance between data that *exists* and data
+you can actually feel.
 
 [**Try the live app →**](https://airvision-2026-esbig4eq22q7shndytr2si.streamlit.app/)
 
-{% include figure.html caption="AirVision — overview dashboard (screenshot to be added)." %}
+{% include figure.html src="/assets/images/airvision-overview.png" alt="AirVision dashboard overview" caption="AirVision — the overview you land on." %}
 
-## The data
+## What it is, in one line
 
-The project pulls together satellite observations and reanalysis data across
-**15 Pakistani cities**. Working at that scale forces a few good habits early:
+AirVision is a study of air quality across **fifteen Pakistani cities**, built
+from a year of satellite and weather data, designed so you can open any city and
+understand how it breathes — without needing a science degree to read it.
 
-- A consistent schema, so every city is comparable.
-- Sensible handling of gaps — missing days are common and pretending they're
-  zero is worse than admitting them.
-- Aggregations that match how people actually think about air: daily, monthly,
-  and seasonal views rather than raw timestamps.
+## Why air quality, in plain words
 
-## Making it interpretable
+Air pollution isn't one thing; it's a few invisible ones. Tiny particles small
+enough to slip into your lungs. Gases that come off traffic and industry. On a
+good day you don't notice them. Over a winter, they decide whether a city's air
+is something you'd let a child run around in.
 
-The interpretation layer is where most of the effort went. A number like a
-pollutant concentration means nothing on its own; it only matters relative to a
-baseline, a guideline, and the rest of the year.
+The trouble is that this is usually reported as raw numbers with names like NO₂
+and PM2.5 — accurate, but meaningless to most people. I wanted the meaning back.
 
-So the app leans on a few ideas:
+## Where the data comes from
 
-1. **Comparison over absolutes** — every reading is shown against the city's own
-   typical range, not just a global threshold.
-2. **Visual first** — trends and maps before tables, because shape is easier to
-   read than rows.
-3. **One question per view** — each screen answers a single thing well instead
-   of showing everything at once.
+Two sources do the heavy lifting, and both are easier than they sound:
 
-{% include figure.html caption="Per-city trend view (screenshot to be added)." %}
+- **Satellites** that read the sky from orbit and estimate what's in the air
+  below — the same family of tech behind weather forecasts.
+- **Reanalysis data**, which is basically the best reconstruction we have of past
+  conditions, stitched together from many measurements into one consistent record.
 
-## What I'd change next
+Pulling fifteen cities together forced some discipline early: one shared format
+so every city is comparable, honest handling of gaps instead of pretending
+missing days are zero, and time-scales that match how people actually think —
+daily, monthly, and seasonal rather than raw timestamps.
 
-A few things are on the list:
+{% include figure.html src="/assets/images/airvision-trend.png" alt="Per-city trend chart" caption="One city, one year — the shape of the air over time." %}
 
-- Add uncertainty bands so the confidence in each reading is visible, not implied.
-- Bring in a light forecasting baseline to contrast "what happened" with "what we
-  might expect."
-- Write up the methodology in its own post, because the cleaning choices deserve
-  more than a footnote.
+## The hard part wasn't the data
+
+It was making the data *readable*. A pollutant number means nothing on its own;
+it only matters next to a baseline, a guideline, and the rest of the year. So the
+whole app leans on three ideas:
+
+1. **Comparison over absolutes.** Every reading is shown against the city's own
+   normal range, not just a global threshold. "Worse than usual" lands harder
+   than a bare figure.
+2. **Visual first.** Trends and maps before tables, because the eye reads a shape
+   faster than it reads a row of digits.
+3. **One question per view.** Each screen answers a single thing well instead of
+   showing everything at once.
+
+{% include figure.html src="/assets/images/airvision-comparison.png" alt="City comparison view" caption="Comparing cities at a glance." %}
+
+## What you can actually do
+
+You can pick a city and watch its year unfold. You can see when the air turned —
+and roughly why. You can put cities side by side and see which ones carry a
+heavier load. The point throughout is the same: less "here is a number," more
+"here is what happened, and here's how to read it."
 
 > The goal was never a prettier dashboard. It was a study you could read like a
 > story and still trust like a dataset.
 
-If you build something similar, the lesson that kept paying off was this: spend
-your time on the layer between the data and the reader. The model is rarely the
-hard part. The translation is.
+## What I learned
+
+<!--
+  AILYA — add 2–3 real sentences here: something that surprised you in the data,
+  a city that didn't behave how you expected, or a cleaning decision you'd defend.
+  This is what makes it yours instead of generic. Keep it concrete.
+-->
+
+The biggest lesson was where the value actually lives: in the layer between the
+data and the reader. The modelling is rarely the bottleneck. The translation is.
+
+## What's next
+
+A few things are on the list: uncertainty bands so confidence is visible rather
+than implied, a light forecasting baseline to contrast "what happened" with "what
+we'd expect," and a proper methodology write-up, because the cleaning choices
+deserve more than a footnote.
+
+If you build something similar, the advice that kept paying off is this: spend
+your time on the part that turns measurement into meaning. That's the project.
+
+[**Open AirVision →**](https://airvision-2026-esbig4eq22q7shndytr2si.streamlit.app/)

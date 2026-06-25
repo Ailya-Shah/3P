@@ -34,14 +34,14 @@ The part where ideas become runnable. pandas, NumPy, scikit-learn, Streamlit —
 the tools I use to turn a hunch into something you can open, poke at, and argue
 with.
 
-{% include figure.html caption="A look at the workspace — screenshot to be added." %}
+{% include figure.html src="/assets/images/workspace.png" alt="My workspace" caption="Where most of it happens." %}
 
 ## What goes here
 
-Expect project write-ups, learning logs, short technical notes, and the
-occasional essay that tries to connect two of these worlds. Some posts will be
-careful and finished; others will be me thinking out loud. That's the point of a
-notebook.
+Expect project write-ups in plain language, learning logs, short technical notes,
+and the occasional essay that tries to connect two of these worlds. Some posts
+will be careful and finished; others will be me thinking out loud. That's the
+point of a notebook.
 
 If you want the short version of everything below: I like turning data into
 stories, code into useful systems, and ideas into things people can inspect.

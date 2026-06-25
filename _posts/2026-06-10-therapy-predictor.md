@@ -23,12 +23,12 @@ The mechanics were familiar and, honestly, the easy bit:
 - Look at precision and recall separately, because the cost of a false negative
   and a false positive are nothing alike here.
 
-{% include figure.html src="/assets/images/confusion-matrix.png" alt="Confusion matrix across model variants" caption="Confusion matrix across model variants" %}
+{% include figure.html src="/assets/images/confusion-matrix.png" alt="Confusion matrix across model variants" caption="Confusion matrix across model variants." %}
 
 ## The uncomfortable part
 
-A model that's right 85% of the time sounds great until you ask *which* 15% it's
-wrong about, and whether that error lands on the people who can least afford it.
+A model that's right most of the time sounds great until you ask *which* cases it
+gets wrong, and whether that error lands on the people who can least afford it.
 That's not a tuning problem. It's a framing problem, and no amount of
 cross-validation fixes a question that was set up wrong.
 
