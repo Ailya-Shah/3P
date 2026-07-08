@@ -7,14 +7,14 @@ excerpt: "I built a credit model, then did the two things most portfolio project
 ---
 
 <!--
-  IMAGES: uses this site's figure.html include, matching other 3P posts:
-    {% include figure.html src="/assets/basel-lite/NAME.png" alt="..." caption="..." %}
-  Put the screenshots in /assets/basel-lite/ with the NAME shown in each src.
+  IMAGE PATHS: this post expects screenshots in /assets/basel-lite/
+  If your Jekyll assets live elsewhere, change the prefix once and it propagates.
+  Every image below uses:  {{ "/assets/basel-lite/NAME.png" | relative_url }}
 -->
 
 Most credit-risk portfolio projects stop at "I trained a classifier and it got 0.7 AUC." I wanted to build the thing a bank actually runs — not just the model, but the two layers that sit on top of it in a real risk function: an **independent validation** of the model, and a **forward-looking loss allowance** under IFRS 9. This is the story of Basel-Lite, including the parts that didn't flatter me, because those are the parts that taught me the most.
 
-{% include figure.html src="/assets/basel-lite/hero-dashboard.png" alt="Basel-Lite live borrower scorer" caption="The live borrower scorer: PD, credit score, risk band, and expected loss update as you drag the inputs." %}
+![Basel-Lite borrower scorer]({{ "/assets/basel-lite/hero-dashboard.png" | relative_url }})
 
 ## At a glance
 
@@ -45,21 +45,21 @@ I trained a **calibrated LightGBM** to estimate PD, using **only features known 
 
 On top of the PD model I built a **Weight-of-Evidence scorecard** scaled to the familiar 300–850 range — the interpretable, points-based form regulated credit scores actually take — and measured **LGD empirically** from real recoveries on charged-off loans rather than assuming a number. Those combine into Expected Loss, `EL = PD × LGD × EAD`.
 
-{% include figure.html src="/assets/basel-lite/roc-curve.png" alt="ROC curve of the calibrated PD model" caption="ROC curve — the PD model separates defaulters from non-defaulters at AUC 0.713." %}
+![ROC curve]({{ "/assets/basel-lite/roc-curve.png" | relative_url }})
 
 The single most important chart isn't the ROC, though — it's the calibration curve.
 
-{% include figure.html src="/assets/basel-lite/calibration-curve.png" alt="Calibration curve of predicted vs observed default rates" caption="Calibration — predicted PDs track observed default rates within ~1 percentage point (ECE 0.009)." %}
+![Calibration curve]({{ "/assets/basel-lite/calibration-curve.png" | relative_url }})
 
 An **expected calibration error of 0.009** means my predicted PDs land within about one percentage point of the observed default rate across the whole range. That's what licenses feeding them straight into the loss math: a model can rank borrowers perfectly and still be uncalibrated, and an uncalibrated 5% that's really 12% quietly wrecks every downstream capital number. Discrimination gets the headlines; calibration is what makes the money math valid.
 
 I also used **SHAP** to explain every prediction and **survival analysis** (Kaplan–Meier) to model *when* defaults happen, not just whether — a curve that turns out to matter a lot in Part 3.
 
-{% include figure.html src="/assets/basel-lite/shap-importance.png" alt="SHAP feature importance for the PD model" caption="SHAP — which features drive each prediction, and in which direction." %}
+![SHAP feature importance]({{ "/assets/basel-lite/shap-importance.png" | relative_url }})
 
 The whole thing ships as a real stack: a MySQL data layer, a FastAPI scoring service, and a Streamlit dashboard where dragging a borrower's FICO recalculates their risk and expected loss live.
 
-{% include figure.html src="/assets/basel-lite/portfolio-risk.png" alt="Portfolio risk dashboard" caption="The portfolio view — sample the book and value total exposure, expected loss, and loss by grade in one pass." %}
+({{ "/assets/basel-lite/portfolio-risk.png" | relative_url }})
 
 ---
 
@@ -67,11 +67,11 @@ The whole thing ships as a real stack: a MySQL data layer, a FastAPI scoring ser
 
 Here's where I did something most projects don't: I built an **independent validation layer** that treats my model as a suspect, not a trophy. It's a separate `validation/` package that re-scores a fixed-seed holdout the exact way the API does, runs eight acceptance checks with explicit thresholds, encodes each as a `pytest` test, and renders a PDF report. A *failing* check is a documented finding, not a crash.
 
-{% include figure.html src="/assets/basel-lite/validation-report-cover.png" alt="Model validation report — check summary" caption="The independent validation report: eight acceptance checks, each with an explicit threshold, all passing." %}
+![Validation report — summary]({{ "/assets/basel-lite/validation-report-cover.png" | relative_url }})
 
 All eight pass on the LendingClub holdout: leakage, discrimination (Gini/KS), calibration, in-sample stability, **out-of-time stability** (PSI 0.008 comparing 2013–14 vs 2015–16 loan vintages — the "is my model still valid two years later" question), rank monotonicity, and a champion-vs-challenger benchmark.
 
-{% include figure.html src="/assets/basel-lite/validation-report-evidence.png" alt="Model validation report — evidence charts" caption="Validation evidence — ROC, calibration, score stability, and default rate by score band." %}
+![Validation report — evidence]({{ "/assets/basel-lite/validation-report-evidence.png" | relative_url }})
 
 **The most honest result in the whole project lives here.** My LightGBM beats a plain WoE-logistic regression by only **0.007 Gini**. I could have buried that. Instead the report states it plainly: most of the signal is already captured linearly through the WoE transform, so the simpler, more interpretable logistic model would be a defensible production choice — the gradient boosting earns its keep only at the margin, and mostly for the explainability tooling around it. Learning to *report the unflattering delta* instead of hiding it is, I think, the actual skill a model-validation team hires for.
 
@@ -92,11 +92,11 @@ then probability-weights the scenarios. It reuses everything upstream:
 - **Staging** — Stage 1 (12-month ECL) vs Stage 2/3 (lifetime), which decides the horizon.
 - **Vasicek macro overlay** — shifts through-the-cycle PD to point-in-time under upside / baseline / adverse scenarios.
 
-{% include figure.html src="/assets/basel-lite/ecl-report-cover.png" alt="IFRS 9 ECL report — summary" caption="The IFRS 9 ECL report: 5.75% portfolio coverage, staged (12-month vs lifetime) and scenario-weighted." %}
+![IFRS 9 ECL report — summary]({{ "/assets/basel-lite/ecl-report-cover.png" | relative_url }})
 
 On the full completed book (119,060 loans, $1.72bn EAD), the engine reserves **$98.5m — a 5.75% coverage ratio.** The number that made me trust it: 5.75% sits *well below* the 19.8% lifetime default rate. That's correct, not a bug. Most loans are Stage 1, so only 12 months of risk are counted, and exposure amortizes down — so lifetime default risk lands *after* much of the balance is already repaid. Coverage then rises cleanly by stage (2.27% → 9.35% → 16.12%): worse stages must cost more per dollar, and they do. The macro overlay behaves too — adverse ECL comes in at roughly 2.2× baseline.
 
-{% include figure.html src="/assets/basel-lite/ecl-report-evidence.png" alt="IFRS 9 ECL report — evidence charts" caption="ECL evidence — loss by stage, by macro scenario, the default-timing term structure, and coverage by grade." %}
+![IFRS 9 ECL report — evidence]({{ "/assets/basel-lite/ecl-report-evidence.png" | relative_url }})
 
 A small thing I learned while wiring in the survival curve: Kaplan–Meier's tail is unreliable. Past a few years, almost no loans are still at risk, so KM extrapolates from a tiny sample and the cumulative default estimate inflates. It doesn't touch my ECL — the engine only uses the first 60 months (the longest loan term) and truncates the rest — but knowing *why* the tail is noisy, and that my design is robust to it by construction, is exactly the kind of detail that separates using a tool from understanding it.
 
