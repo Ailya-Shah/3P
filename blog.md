@@ -16,7 +16,8 @@ permalink: /blog/
 </section>
 
 <section class="section" data-reveal>
-  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% assign sorted = site.posts | sort: "date" | reverse %}
+{% assign posts_by_year = sorted | group_by_exp: "post", "post.date | date: '%Y'" %}
   {% for year in posts_by_year %}
     <h2>{{ year.name }}</h2>
     <ul class="post-list" style="margin-bottom:2.5rem">

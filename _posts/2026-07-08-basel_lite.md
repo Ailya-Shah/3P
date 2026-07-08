@@ -2,8 +2,9 @@
 layout: post
 title: "Basel-Lite: Building a Credit-Risk Engine — Then Validating My Own Model and Provisioning It Under IFRS 9"
 date: 2026-07-08
-tags: [data-science, credit-risk, machine-learning, ifrs9, model-validation, python]
+disc: data
 excerpt: "I built a credit model, then did the two things most portfolio projects skip: I validated it as if I were the independent reviewer, and I turned it into a forward-looking IFRS 9 loss allowance. Here's the reasoning, the honest findings, and the parts I chose not to fake."
+featured: false
 ---
 
 <!--
@@ -59,7 +60,7 @@ I also used **SHAP** to explain every prediction and **survival analysis** (Kapl
 
 The whole thing ships as a real stack: a MySQL data layer, a FastAPI scoring service, and a Streamlit dashboard where dragging a borrower's FICO recalculates their risk and expected loss live.
 
-({{ "/assets/basel-lite/portfolio-risk.png" | relative_url }})
+![portfolio risk]({{ "/assets/basel-lite/portfolio-risk.png" | relative_url }})
 
 ---
 
