@@ -30,7 +30,8 @@ Most credit-risk portfolio projects stop at "I trained a classifier and it got 0
 | **Stack** | MySQL · LightGBM · FastAPI · Streamlit · pytest |
 | **Tests** | 16 passing across two packages |
 
-Repo: [github.com/Ailya-Shah/basel_lite](https://github.com/Ailya-Shah/basel_lite) · Live dashboard: *(https://bitcoin-trend-predictions.vercel.app/)*
+**Repo:** [github.com/Ailya-Shah/basel_lite](https://github.com/Ailya-Shah/basel_lite) · **Live Dashboard:** [bitcoin-trend-predictions.vercel.app](https://bitcoin-trend-predictions.vercel.app/)
+
 
 ---
 
